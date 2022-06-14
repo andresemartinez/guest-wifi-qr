@@ -1,0 +1,4 @@
+.wifi-qr > svg > path {
+    fill: var(--background-color);
+    stroke: var(--qr-color);
+}
