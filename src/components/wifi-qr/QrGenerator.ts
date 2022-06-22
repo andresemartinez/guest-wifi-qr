@@ -1,11 +1,5 @@
 import {generateWifiQRCode} from 'wifi-qr-code-generator';
-
-export type WifiConfig = {
-    ssid: string,
-    password: string,
-    encryption: 'WPA' | 'WEP'
-    hidden: boolean,
-};
+import {WifiConfig} from '../../config/wifi-config';
 
 export function generateSvgQr(wifiConfig: WifiConfig) {
     return generateWifiQRCode({

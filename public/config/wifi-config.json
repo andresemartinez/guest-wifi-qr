@@ -1,0 +1,6 @@
+{
+  "ssid": "some-ssid",
+  "password": "some-password",
+  "encryption": "WEP",
+  "hidden": true
+}

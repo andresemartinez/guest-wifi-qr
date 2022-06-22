@@ -1,17 +1,33 @@
-# Wi-Fi Credetials Display
+# Guest Wi-Fi QR
 
-An easy way of sharing a guest Wi-Fi network credentials with friends and family.
-
-## Configuration
-
-### Wi-Fi credentials
-
-The Wi-Fi credentials can be configured in the [wifi-config.ts](./src/config/wifi-config.ts) file.
-
-### Theming
-
-Colors and sizes can be changed in the [colors.css](./src/style/colors.css) and [sizes.css](./src/style/sizes.css) files respectively.
+A simple web to display your guest Wi-Fi credentials
 
 ## Deploy
 
-Run `npm install && npm run build` to build the project for manual deploy or `docker build -t wifi-qr .` to build a docker image.
+### Build image
+
+```bash
+docker build -t wifi-qr .
+```
+
+### Run container
+
+```bash
+docker run --name wifi-qr  \
+    -d \
+    --restart unless-stopped \
+    -v "$HOME/.config/wifi-qr:/usr/share/nginx/html/config" \
+    wifi-qr
+```
+
+### Configure credentials
+
+```bash
+echo "{ \
+    "ssid": "your-ssid", \
+    "password": "your-password", \
+    "encryption": "WEP", \
+    "hidden": false \
+}" > "$HOME/.config/wifi-qr/wifi-config.json"
+```
+

@@ -1,6 +1,7 @@
-import {generateSvgQr, WifiConfig} from './QrGenerator';
+import {generateSvgQr} from './QrGenerator';
 import {usePromise} from 'promise-hooks-react';
 import styles from './WifiQr.module.css';
+import {WifiConfig} from '../../config/wifi-config';
 
 interface WifiQrProps {
     wifiConfig: WifiConfig;

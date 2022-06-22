@@ -1,19 +1,29 @@
 import WifiQr from './components/wifi-qr/WifiQr';
-import {WIFI_CONFIG} from './config/wifi-creds';
-import WifiCredentialsDisplay from './components/wifi-credentials-display/WifiCredentialsDisplay';
+import WifiCredentials from './components/wifi-credentials/WifiCredentials';
 import style from './App.module.css';
+import {usePromise} from 'promise-hooks-react';
+import {findWifiConfig} from './config/wifi-config';
 
 function App() {
 
-    return (
-        <div className={style.appContainer}>
-            <div className={style.wifiQrContainer}>
-                <WifiQr wifiConfig={WIFI_CONFIG}/>
+    const [wifiConfig] = usePromise(findWifiConfig());
+
+    return (wifiConfig
+            ? <div className={style.appContainer}>
+                {
+                    wifiConfig.errors.length <= 0
+                        ? <>
+                            <div className={style.wifiQrContainer}>
+                                <WifiQr wifiConfig={wifiConfig.data}/>
+                            </div>
+                            <div className={style.wifiCredentialsContainer}>
+                                <WifiCredentials wifiConfig={wifiConfig.data}/>
+                            </div>
+                        </>
+                        : wifiConfig.errors.map(error => <span>{error.message}</span>)
+                }
             </div>
-            <div className={style.wifiCredentialsContainer}>
-                <WifiCredentialsDisplay wifiConfig={WIFI_CONFIG}/>
-            </div>
-        </div>
+            : null
     );
 }
 

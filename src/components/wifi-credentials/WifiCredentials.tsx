@@ -1,11 +1,11 @@
-import {WifiConfig} from '../wifi-qr/QrGenerator';
-import styles from './WifiCredentialsDisplay.module.css';
+import styles from './WifiCredentials.module.css';
+import {WifiConfig} from '../../config/wifi-config';
 
-interface WifiCredentialsDisplayProps {
+interface WifiCredentialsProps {
     wifiConfig: WifiConfig;
 }
 
-function WifiCredentialsDisplay({wifiConfig}: WifiCredentialsDisplayProps) {
+function WifiCredentials({wifiConfig}: WifiCredentialsProps) {
     return (
         <>
             <div className={styles.wifiCredentialsSection}>
@@ -20,4 +20,4 @@ function WifiCredentialsDisplay({wifiConfig}: WifiCredentialsDisplayProps) {
     );
 }
 
-export default WifiCredentialsDisplay;
+export default WifiCredentials;
