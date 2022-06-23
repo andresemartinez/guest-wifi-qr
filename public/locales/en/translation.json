@@ -1,0 +1,22 @@
+{
+  "wifi-credentials": {
+    "ssid": "Network",
+    "password": "Password"
+  },
+  "wifi-config": {
+    "error": {
+      "ssid": {
+        "required": "\"ssid\" config is required"
+      },
+      "password": {
+        "required": "\"password\" config is required"
+      },
+      "encryption": {
+        "required": "\"encryption\" config is required"
+      },
+      "hidden": {
+        "required": "\"hidden\" config is required"
+      }
+    }
+  }
+}

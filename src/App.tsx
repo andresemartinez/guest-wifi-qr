@@ -2,11 +2,11 @@ import WifiQr from './components/wifi-qr/WifiQr';
 import WifiCredentials from './components/wifi-credentials/WifiCredentials';
 import style from './App.module.css';
 import {usePromise} from 'promise-hooks-react';
-import {findWifiConfig} from './config/wifi-config';
+import {findWifiConfig} from './services/wifi-config';
+import WifiConfigErrors from './components/wifi-config-errors/WifiConfigErrors';
 
 function App() {
-
-    const [wifiConfig] = usePromise(findWifiConfig());
+    const [wifiConfig] = usePromise(() => findWifiConfig(), []);
 
     return (wifiConfig
             ? <div className={style.appContainer}>
@@ -20,7 +20,7 @@ function App() {
                                 <WifiCredentials wifiConfig={wifiConfig.data}/>
                             </div>
                         </>
-                        : wifiConfig.errors.map(error => <span>{error.message}</span>)
+                        : <WifiConfigErrors errors={wifiConfig.errors}/>
                 }
             </div>
             : null

@@ -1,19 +1,21 @@
 import styles from './WifiCredentials.module.css';
-import {WifiConfig} from '../../config/wifi-config';
+import {WifiConfig} from '../../services/wifi-config';
+import {useTranslation} from 'react-i18next';
 
 interface WifiCredentialsProps {
     wifiConfig: WifiConfig;
 }
 
 function WifiCredentials({wifiConfig}: WifiCredentialsProps) {
+    const {t} = useTranslation();
     return (
         <>
             <div className={styles.wifiCredentialsSection}>
-                <span>SSID: </span>
+                <span>{t('wifi-credentials.ssid')}: </span>
                 <span>{wifiConfig.ssid}</span>
             </div>
             <div className={styles.wifiCredentialsSection}>
-                <span>Contraseña: </span>
+                <span>{t('wifi-credentials.password')}: </span>
                 <span>{wifiConfig.password}</span>
             </div>
         </>

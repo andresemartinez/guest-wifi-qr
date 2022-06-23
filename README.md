@@ -23,11 +23,10 @@ docker run --name wifi-qr  \
 ### Configure credentials
 
 ```bash
-echo "{ \
-    "ssid": "your-ssid", \
-    "password": "your-password", \
-    "encryption": "WEP", \
-    "hidden": false \
-}" > "$HOME/.config/wifi-qr/wifi-config.json"
+echo '{
+    "ssid": "your-ssid",
+    "password": "your-password",
+    "encryption": "WEP",
+    "hidden": false
+}' > "$HOME/.config/wifi-qr/wifi-config.json"
 ```
-

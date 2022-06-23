@@ -1,5 +1,5 @@
 import {generateWifiQRCode} from 'wifi-qr-code-generator';
-import {WifiConfig} from '../../config/wifi-config';
+import {WifiConfig} from '../../services/wifi-config';
 
 export function generateSvgQr(wifiConfig: WifiConfig) {
     return generateWifiQRCode({
