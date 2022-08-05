@@ -1,7 +1,7 @@
 import {WifiConfigError} from '../../services/wifi-config';
 import {useTranslation} from 'react-i18next';
 
-interface WifiConfigErrorProps {
+type WifiConfigErrorProps = {
     errors: WifiConfigError[];
 }
 

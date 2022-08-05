@@ -3,7 +3,7 @@ import {usePromise} from 'promise-hooks-react';
 import styles from './WifiQr.module.css';
 import {WifiConfig} from '../../services/wifi-config';
 
-interface WifiQrProps {
+type WifiQrProps = {
     wifiConfig: WifiConfig;
 }
 

@@ -2,7 +2,7 @@ import styles from './WifiCredentials.module.css';
 import {WifiConfig} from '../../services/wifi-config';
 import {useTranslation} from 'react-i18next';
 
-interface WifiCredentialsProps {
+type WifiCredentialsProps = {
     wifiConfig: WifiConfig;
 }
 
