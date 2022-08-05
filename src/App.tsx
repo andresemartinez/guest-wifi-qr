@@ -8,23 +8,22 @@ import WifiConfigErrors from './components/wifi-config-errors/WifiConfigErrors';
 function App() {
   const [wifiConfig] = usePromise(() => findWifiConfig(), []);
 
-  return (wifiConfig
-      ? <div className={style.appContainer}>
-        {
-          wifiConfig.errors.length <= 0
-            ? <>
-              <div className={style.wifiQrContainer}>
-                <WifiQr wifiConfig={wifiConfig.data} />
-              </div>
-              <div className={style.wifiCredentialsContainer}>
-                <WifiCredentials wifiConfig={wifiConfig.data} />
-              </div>
-            </>
-            : <WifiConfigErrors errors={wifiConfig.errors} />
-        }
-      </div>
-      : null
-  );
+  return wifiConfig ? (
+    <div className={style.appContainer}>
+      {wifiConfig.errors.length <= 0 ? (
+        <>
+          <div className={style.wifiQrContainer}>
+            <WifiQr wifiConfig={wifiConfig.data} />
+          </div>
+          <div className={style.wifiCredentialsContainer}>
+            <WifiCredentials wifiConfig={wifiConfig.data} />
+          </div>
+        </>
+      ) : (
+        <WifiConfigErrors errors={wifiConfig.errors} />
+      )}
+    </div>
+  ) : null;
 }
 
 export default App;

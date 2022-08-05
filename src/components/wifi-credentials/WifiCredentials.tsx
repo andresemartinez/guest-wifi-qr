@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 type WifiCredentialsProps = {
   wifiConfig: WifiConfig;
-}
+};
 
 function WifiCredentials({ wifiConfig }: WifiCredentialsProps) {
   const { t } = useTranslation();

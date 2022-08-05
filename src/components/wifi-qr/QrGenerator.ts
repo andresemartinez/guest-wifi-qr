@@ -7,7 +7,6 @@ export function generateSvgQr(wifiConfig: WifiConfig) {
     password: wifiConfig.password,
     encryption: wifiConfig.encryption,
     hiddenSSID: wifiConfig.hidden,
-    outputFormat: { type: 'svg' }
+    outputFormat: { type: 'svg' },
   });
 }
-

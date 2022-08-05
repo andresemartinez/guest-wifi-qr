@@ -3,11 +3,17 @@ import { useTranslation } from 'react-i18next';
 
 type WifiConfigErrorProps = {
   errors: WifiConfigError[];
-}
+};
 
 function WifiConfigErrors({ errors }: WifiConfigErrorProps) {
   const { t } = useTranslation();
-  return (<>{errors.map(error => <span>{t(error.i18nKey)}</span>)}</>);
+  return (
+    <>
+      {errors.map((error) => (
+        <span key={error.i18nKey}>{t(error.i18nKey)}</span>
+      ))}
+    </>
+  );
 }
 
 export default WifiConfigErrors;

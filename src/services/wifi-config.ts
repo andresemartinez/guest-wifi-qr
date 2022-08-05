@@ -1,12 +1,12 @@
 export type WifiConfig = {
-  ssid: string,
-  password: string,
-  encryption: 'WPA' | 'WEP'
-  hidden: boolean,
+  ssid: string;
+  password: string;
+  encryption: 'WPA' | 'WEP';
+  hidden: boolean;
 };
 
 export type WifiConfigError = {
-  i18nKey: string,
+  i18nKey: string;
 };
 
 export async function findWifiConfig() {
@@ -18,11 +18,17 @@ export async function findWifiConfig() {
     errors.push({ i18nKey: 'wifi-config.error.ssid.required' });
   }
 
-  if (typeof wifiConfig.password !== 'string' || wifiConfig.password.length === 0) {
+  if (
+    typeof wifiConfig.password !== 'string' ||
+    wifiConfig.password.length === 0
+  ) {
     errors.push({ i18nKey: 'wifi-config.error.password.required' });
   }
 
-  if (typeof wifiConfig.encryption !== 'string' || wifiConfig.encryption.length === 0) {
+  if (
+    typeof wifiConfig.encryption !== 'string' ||
+    wifiConfig.encryption.length === 0
+  ) {
     errors.push({ i18nKey: 'wifi-config.error.encryption.required' });
   }
 
@@ -32,7 +38,6 @@ export async function findWifiConfig() {
 
   return {
     data: wifiConfig as WifiConfig,
-    errors: errors
+    errors: errors,
   };
-
 }

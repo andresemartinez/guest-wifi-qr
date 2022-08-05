@@ -1,13 +1,12 @@
 .app-container {
-    max-width: var(--app-max-width);
-    margin: 64px auto;
+  max-width: var(--app-max-width);
+  margin: 64px auto;
 }
 
 .wifi-qr-container {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .wifi-credentials-container {
-    margin-top: 32px;
+  margin-top: 32px;
 }
-
